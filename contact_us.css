@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contact-form {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+    /* padding: 0 4rem;  */
+    /* overflow: hidden; */
+}
+
+
+h3 {
+    font-size: 35px;
+}
+
+.a2 {
+    font-size: 12px;
+}
+
+.c1 {
+    background-image: linear-gradient(to bottom right, rgba(186, 58, 232, 1), rgba(36, 28, 118, 0.95));
+    /* background-color: rgb(245, 49, 177); */
+    color: white;
+    /* border: 1px solid firebrick; */
+}
+
+
+.c2 {
+    align-self: stretch;
+    box-shadow: 7px 7px 12px rgb(185, 174, 174);
+    background-color: white;
+    height: 100%;
+}
+
+.c1,
+.c2 {
+    padding: 27px 40px;
+    font-size: larger;
+    width: 400px;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    outline: none !important;
+    border: none;
+}
+
+.form-control {
+    padding: 14px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    border-bottom: 1px solid rgb(33, 3, 22);
+}
+
+.form-control::placeholder {
+    color: #f8f8f8;
+}   
+
+
+#reason {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+#reason:focus {
+    border: none;
+    outline: none;
+}
+
+#reason option {
+    background-color: transparent;
+    color: black;
+}
+
+.submit {
+    margin-top: 2rem;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f625ac;
+    color: white;
+    font-size: 16px;
+}
+
+.submit:hover {
+    /* background-color: ; */
+    color: rgba(36, 28, 118, 0.95);
+}
+
+.rs {
+
+    padding: 20px;
+
+}
+
+.rs1 {
+    margin: 7px;
+}
+
+.light {
+    color: rgb(175, 175, 175);
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.contactus {
+    text-decoration: underline rgb(228, 78, 193);
+}
+
+.a7{
+    border: none;
+}
+
+label{
+    padding-left: 12px;
+    font-size: 18px;
+}
