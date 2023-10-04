@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            background-color: rgb(255, 248, 232);
+        }
+
+        .card {
+            width: 375px;
+            background-color: rgb(254, 236, 194);
+            border-radius: 50px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .image {
+            width: 375px;
+            height: 250px;
+        }
+
+        .chefimage {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .line {
+            height: 2px;
+            background-color: black;
+        }
+
+        .lss {
+            display: inline;
+            background-color: rgb(254, 236, 194);
+            border-radius: 20px;
+            font-size: 18px;
+            padding-left: 1%;
+            height: 31px;
+            border: 1px solid black;
+        }
+
+        .lss:hover {
+            background-color: rgb(255, 175, 82);
+        }
+
+        .like {
+            width: 70px;
+        }
+
+        .share {
+            width: 75px;
+        }
+
+        .save {
+            width: 68px;
+        }
+
+        .cook {
+            display: inline;
+            background-color: rgb(255, 175, 82);
+            height: 45px;
+            width: 90px;
+            border-radius: 20px;
+        }
+
+        .cook:hover {
+            background-color: rgb(255, 154, 39);
+        }
+
+        .second,
+        .third,
+        .forth,
+        .fifth {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row container d-flex justify-content-around m-auto">
+
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 border my-5 mx-0">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                    class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    <img class="chefimage m-auto" src="image.png" alt="chefimage">
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-3 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
