@@ -1,6 +1,31 @@
 from django.shortcuts import render
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
+from naivebaker_app.models import Contact,Recipe
+from datetime import datetime
+from django.core.mail import send_mail
+from django.conf import settings
+from django.core import mail
+from django.core.mail.message import EmailMessage
+from django.contrib.auth.decorators import login_required
+from .models import *
+from .helpers import send_forget_password_mail
+from .views import *
 
 # Create your views here.
+def index(request) :
+    return render(request,'index.html')
+
+def myshowRecipe(request) :
+    if request.method == "POST" :
+        owner = request.user
+        print(owner)
+        return redirect('/addRecipe')
+
+    return render(request,'myshowRecipe.html')
+
 def viewlogin(request) :
     if request.method == "POST" :
         uname = request.POST.get("username")
