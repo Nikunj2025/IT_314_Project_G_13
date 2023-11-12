@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include "headerlinks.html" %}
+    <link rel="stylesheet" href="home.css" class="stylesheet">
+</head>
+
+<body>
+    {% include "navbar.html" %} {% if messages %}
+    <div id="notification" class="notification">
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}}</li>
+                {% endfor %}
+        </ul>
+        <button id="close-notification" onclick="closeNotification()">Close</button>
+    </div>
+    {% endif %}
+
+    <div class="search-container">
+        <div class="search-bar-container" style="background:transparent">
+            <i class="fa-solid fa-magnifying-glass fa-xl" style="margin-right:5px;"></i>
+            <form id="searchForm" action="POST" class="d-flex">
+                {% comment %}
+                <div class="input-group"> {% endcomment %}
+                    <input type="text" class="form-control form-control-lg sfb" id="exampleInputEmail1" placeholder="Search by name" style="margin-right:-81px;border-radius: 20px;">
+
+                    <button class="search-button btn-sm" id="searchrecipename" style="margin-right: 2px;">Search</button> {% comment %} </div> {% endcomment %}
+            </form>
+            {% comment %} <button class="filter-button" id="filter-button" style="background: transparent;">
+                <i class="fa-solid fa-filter fa-2xl" style="color:black"></i>
+            </button> {% endcomment %}
+            <button class="filter-btn btn-sm" id="filter-button" style="background: white;height:97%;border-radius:10px;">
+                <i class="fa-solid fa-filter fa-2xl" style="color:black"></i>
+            </button>
+            <div id="filter-form" class="filter-form">
+                <form id="filterForm">
+                    <!-- Add an ID to the form -->
+                    <h3 style="display:flex;text-align:center;margin:auto;">Choose Food Category:</h3>
+                    <div class="food-categories">
+                        <input type="radio" id="indian" name="food-type" value="Indian" onClick="setCuisineType(this)">
+                        <label for="indian">Indian</label>
+
+                        <input type="radio" id="thai" name="food-type" value="Thai" onClick="setCuisineType(this)">
+                        <label for="thai">Thai</label>
+
+                        <input type="radio" id="mexican" name="food-type" value="Mexican" onClick="setCuisineType(this)">
+                        <label for="mexican">Mexican</label>
+
+                        <input type="radio" id="french" name="food-type" value="French" onClick="setCuisineType(this)">
+                        <label for="french">French</label>
+
+                        <input type="radio" id="chinese" name="food-type" value="Chinese" onClick="setCuisineType(this)">
+                        <label for="chinese">Chinese</label>
+                    </div>
+                    <h3>Choose Meal Type:</h3>
+                    <div class="food-categories">
+                        <input type="radio" id="lunch" name="meal-type" value="Lunch" onClick="setMealType(this)">
+                        <label for="lunch">Lunch</label>
+
+                        <input type="radio" id="dinner" name="meal-type" value="Dinner" onClick="setMealType(this)">
+                        <label for="dinner">Dinner</label>
+
+                        <input type="radio" id="breakfast" name="meal-type" value="Breakfast" onClick="setMealType(this)">
+                        <label for="breakfast">Breakfast</label>
+
+                        <input type="radio" id="snacks" name="meal-type" value="Snacks" onClick="setMealType(this)">
+                        <label for="snacks">Snacks</label>
+                    </div>
+
+                    <div class="ingredients">
+                        <h3 for="ingredients">Ingredients:</h3>
+                        <div class="ingredient-list" id="ingredient-list">
+                            <!-- Ingredient items will be added here dynamically -->
+                        </div>
+                        <button class="add-ingredient-button" id="add-ingredient">+</button>
+                    </div>
+                    <div class="time-input">
+                        <h3 for="time" style="margin-right: 10px;">Time:</h3>
+                        <input type="number" id="hours" name="hours" min="0" max="23">
+                        <p style="font-size: 29px; align-items:center; justify-content:center;"> : </p>
+                        <input type="number" id="minutes" name="minutes" min="0" max="59">
+                    </div>
+                    <div class="time-input">
+                    </div>
+                    <button onClick="applyForm(event)">Apply</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="row container-fluid blurkaro d-flex justify-content-around m-auto" id="results" style="background-color: rgb(255, 248, 232)">
+        <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80" class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    {% comment %} <img class="chefimage m-auto" src="image.png" alt="chefimage"> {% endcomment %}
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-10 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like likeone mx-auto">
+                    <button class="btn btn-transparent btn-sm " name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80" class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    {% comment %} <img class="chefimage m-auto" src="image.png" alt="chefimage"> {% endcomment %}
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-10 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like liketwo mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1">
+
+            <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80" class="image img-fluid rounded-5" alt="Card image cap">
+            </figure>
+
+
+            <div class="second row mt-2">
+
+                <div class="chef col-lg-6 d-flex justify-content-start">
+                    <div class="chefname">
+                        <div>-By abcdefghijk</div>
+                        <div class="line"></div>
+                        <div class="text-end">LA</div>
+                    </div>
+
+                    {% comment %} <img class="chefimage m-auto" src="image.png" alt="chefimage"> {% endcomment %}
+                </div>
+
+                <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
+
+                    <div class="chefname">
+                        <div class="row">
+                            <span class="fs-10 fw-bolder">
+                                Pasta
+                            </span>
+                        </div>
+
+                        <div class="fs-6 fw-bolder">
+                            <span style="color: blue;">4.5</span>
+                            <span style="color: orange;">rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third row d-flex justify-content-between mt-2">
+                <div class="col-lg-6 col-sm-12 justify-content-lg-start">
+                    south-indian, Dinner
+                </div>
+                <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
+                    20 min
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <br>
+
+            <div class="fourth d-flex justify-content-between">
+                <div class="lss like liket mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="like" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                        Like
+                    </button>
+                </div>
+                <div class="lss share mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                        <i class="fa-sharp fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                </div>
+                <div class="lss save mx-auto">
+                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                    <div class="fs-4">
+                        Cook
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+</body>
+<script src="home.js"></script>
+
+</html>
