@@ -111,3 +111,8 @@ def contact(request) :
             messages.success(request, "Thanks for your valuable feedback")
             redirect('/contactus')
         return render(request,'contact.html')
+
+def viewlogout(request) :
+    logout(request)
+    messages.info(request,"Logged Out Successfully")
+    return redirect('/')
