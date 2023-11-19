@@ -116,3 +116,20 @@ def viewlogout(request) :
     logout(request)
     messages.info(request,"Logged Out Successfully")
     return redirect('/')
+
+@login_required
+def dashboard(request):
+     if request.user.is_anonymous:
+        return redirect("/")
+     else :
+        current_user = request.user
+        username = current_user.username
+        email = current_user.email
+        context = {'username' : username,
+                'email' : email}
+        return render(request,'user_profile.html',context)
+         
+def myrecipe(request) : 
+    user_id = request.user
+    user_recipes = Recipe.objects.filter(owner_id=user_id)
+    return render(request, 'myrecipe.html', {'user_recipes': user_recipes})
