@@ -133,3 +133,30 @@ def myrecipe(request) :
     user_id = request.user
     user_recipes = Recipe.objects.filter(owner_id=user_id)
     return render(request, 'myrecipe.html', {'user_recipes': user_recipes})
+
+def home_view(request):
+    imageurl = request.GET.get('param1', '')
+    recipename = request.GET.get('param2', '')
+    cusinetype = request.GET.get('param3', '')
+    meal_time = request.GET.get('param4', '')
+    prep_time = request.GET.get('param5', '')
+    cooklink = request.GET.get('param6', '')
+
+    imageurl = base64.b64decode(imageurl).decode('utf-8')
+    # Your processing logic goes here
+    savedone = save_recipe()
+    savedone.user =   request.user
+    savedone.recipename = recipename
+    savedone.image = imageurl
+    savedone.cusinetype = cusinetype
+    savedone.meal_time = meal_time
+    savedone.preptime = prep_time
+    savedone.cooklink = cooklink
+    savedone.save()
+    messages.success(request, "Recipe is added successfully!!")
+    return redirect('/home')
+def saved_recipe(request):
+    user_id = request.user
+    user_recipes = save_recipe.objects.filter(user_id=user_id)
+    print(user_recipes)
+    return render(request, 'saved_recipe.html', {'user_recipes': user_recipes})
