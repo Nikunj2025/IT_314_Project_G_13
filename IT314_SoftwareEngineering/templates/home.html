@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -378,11 +379,35 @@
         .fs{
             text-overflow: ellipsis;
         }
+        .notification {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+        }
     </style>
 </head>
 
 <body>
+
+
     {% include "navbar.html" %}
+    {% if messages %}
+     <div id="notification" class="notification">
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+        <button id="close-notification" onclick="closeNotification()">Close</button>
+    </div>
+    {% endif %}
+
     <div class="search-container">
         <div class="search-bar-container" style="background:transparent">
             <i class="fa-solid fa-magnifying-glass fa-xl" style="margin-right:5px;"></i>
@@ -395,7 +420,10 @@
                     <button class="search-button btn-sm" id="searchrecipename" style="margin-right: 2px;">Search</button>
                 {% comment %} </div> {% endcomment %}
             </form>
-            <button class="filter-button" id="filter-button" style="background: transparent;"   >
+            {% comment %} <button class="filter-button" id="filter-button" style="background: transparent;"   >
+                <i class="fa-solid fa-filter fa-2xl" style="color:black"></i>
+            </button> {% endcomment %}
+            <button class="filter-btn btn-sm" id="filter-button" style="background: white;height:97%;border-radius:10px;">
                 <i class="fa-solid fa-filter fa-2xl" style="color:black"></i>
             </button>
             <div id="filter-form" class="filter-form">
@@ -452,14 +480,14 @@
             </div>
         </div>
     </div>
-        </div>
+    </div>
     </div>
 
     <div class="row container-fluid blurkaro d-flex justify-content-around m-auto" id="results" style="background-color: rgb(255, 248, 232)">
         <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1">
 
             <figure class="figure">
-                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                <img src="static/img/gulab.jpg"
                     class="image img-fluid rounded-5" alt="Card image cap">
             </figure>
 
@@ -468,12 +496,11 @@
 
                 <div class="chef col-lg-6 d-flex justify-content-start">
                     <div class="chefname">
-                        <div>-By abcdefghijk</div>
+                        <div>-By Sagar Bhaijk</div>
                         <div class="line"></div>
                         <div class="text-end">LA</div>
                     </div>
-
-                    {% comment %} <img class="chefimage m-auto" src="image.png" alt="chefimage"> {% endcomment %}
+                     <img class="chefimage m-auto" src="static/img/gc.jpeg" alt="chefimage">
                 </div>
 
                 <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
@@ -481,12 +508,12 @@
                     <div class="chefname">
                         <div class="row">
                             <span class="fs-10 fw-bolder">
-                                Pasta
+                                Gulab-jamun
                             </span>
                         </div>
 
                         <div class="fs-6 fw-bolder">
-                            <span style="color: blue;">4.5</span>
+                            <span style="color: blue;">4.8</span>
                             <span style="color: orange;">rating</span>
                         </div>
                     </div>
@@ -498,7 +525,7 @@
                     south-indian, Dinner
                 </div>
                 <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
-                    20 min
+                75 min
                 </div>
             </div>
 
@@ -528,7 +555,7 @@
             </div>
 
             <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
-                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook" onclick="window.open('{% url 'gulabjamun' %}', '_blank')">
                     <div class="fs-4">
                         Cook
                     </div>
@@ -538,7 +565,7 @@
         <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1">
 
             <figure class="figure">
-                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                <img src="static/img/pavbhaji.jpg"
                     class="image img-fluid rounded-5" alt="Card image cap">
             </figure>
 
@@ -547,12 +574,12 @@
 
                 <div class="chef col-lg-6 d-flex justify-content-start">
                     <div class="chefname">
-                        <div>-By abcdefghijk</div>
+                        <div>-By Mayur kohli</div>
                         <div class="line"></div>
                         <div class="text-end">LA</div>
-                    </div>
 
-                    {% comment %} <img class="chefimage m-auto" src="image.png" alt="chefimage"> {% endcomment %}
+                    </div>
+                    <img class="chefimage m-auto" src="static/img/pc.jpeg" alt="chefimage"> 
                 </div>
 
                 <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
@@ -560,12 +587,12 @@
                     <div class="chefname">
                         <div class="row">
                             <span class="fs-10 fw-bolder">
-                                Pasta
+                                Pavbhaji
                             </span>
                         </div>
 
                         <div class="fs-6 fw-bolder">
-                            <span style="color: blue;">4.5</span>
+                            <span style="color: blue;">4.1</span>
                             <span style="color: orange;">rating</span>
                         </div>
                     </div>
@@ -574,10 +601,10 @@
 
             <div class="third row d-flex justify-content-between mt-2">
                 <div class="col-lg-6 col-sm-12 justify-content-lg-start">
-                    south-indian, Dinner
+                    Indian, Dinner
                 </div>
                 <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
-                    20 min
+                    45 min
                 </div>
             </div>
 
@@ -607,7 +634,7 @@
             </div>
 
             <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
-                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook" onclick="window.open('{% url 'pavbhaji' %}', '_blank')";>
                     <div class="fs-4">
                         Cook
                     </div>
@@ -617,7 +644,7 @@
         <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1">
 
             <figure class="figure">
-                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2525&q=80"
+                <img src="static/img/rice.jpg"
                     class="image img-fluid rounded-5" alt="Card image cap">
             </figure>
 
@@ -626,12 +653,12 @@
 
                 <div class="chef col-lg-6 d-flex justify-content-start">
                     <div class="chefname">
-                        <div>-By abcdefghijk</div>
+                        <div>-By Jayshree</div>
                         <div class="line"></div>
                         <div class="text-end">LA</div>
                     </div>
 
-                    {% comment %} <img class="chefimage m-auto" src="image.png" alt="chefimage"> {% endcomment %}
+                    <img class="chefimage m-auto" src="static/img/u1.jpeg" alt="chefimage"> 
                 </div>
 
                 <div class="recipe col-lg-6 col-sm-12 d-flex justify-content-lg-end">
@@ -639,12 +666,12 @@
                     <div class="chefname">
                         <div class="row">
                             <span class="fs-10 fw-bolder">
-                                Pasta
+                                Fried-Rice
                             </span>
                         </div>
 
                         <div class="fs-6 fw-bolder">
-                            <span style="color: blue;">4.5</span>
+                            <span style="color: blue;">4.8</span>
                             <span style="color: orange;">rating</span>
                         </div>
                     </div>
@@ -653,10 +680,10 @@
 
             <div class="third row d-flex justify-content-between mt-2">
                 <div class="col-lg-6 col-sm-12 justify-content-lg-start">
-                    south-indian, Dinner
+                    Indian, Dinner
                 </div>
                 <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
-                    20 min
+                    60 min
                 </div>
             </div>
 
@@ -686,7 +713,7 @@
             </div>
 
             <div class="fifth cook d-flex justify-content-center mx-auto mt-3 mb-1">
-                <button class="btn btn-transparent btn-sm" name="cook" id="cook">
+                <button class="btn btn-transparent btn-sm" name="cook" id="cook" onclick="window.open('{% url 'friedrice' %}', '_blank')";>
                     <div class="fs-4">
                         Cook
                     </div>
@@ -811,9 +838,9 @@
         const nik1 = data.hits
         const nik2 = nik1[0]
         console.log(nik2)
-        {% comment %} //console.log(nik2.recipe) {% endcomment %}
-        console.log(nik2.recipe.cuisineType[0])
-        console.log(nik2.recipe.mealType[0])
+        //console.log(nik2.recipe)
+        //console.log(nik2.recipe.cuisineType[0])
+        //console.log(nik2.recipe.mealType[0])
         displayRecipes(data.hits);
     }
 
@@ -837,7 +864,7 @@
         const nik1 = data.hits
         const nik2 = nik1[0]
         console.log(nik2)
-        console.log(nik2.recipe)
+        //console.log(nik2.recipe)
         //console.log(nik2.recipe.cuisineType[0])
         //console.log(nik2.recipe.mealType[0])
         displayRecipes(data.hits);
@@ -845,42 +872,17 @@
 
     function displayRecipes(recipes) {
         console.log("nik")
-        // let html = '';
-        // recipes.forEach((recipe) => {
-        //     console.log(recipe)
-        //     let nik2 = recipe
-        //     console.log(nik2)
-        //     console.log(nik2.recipe)
-        //     console.log(nik2.recipe.image)
-        //     console.log(nik2.recipe.cuisineType[0])
-        //     console.log(nik2.recipe.mealType[0])
-        //     html += `
-        //     <div class="card">
-        //     <div class="card__header">
-        //       <img src="${recipe.recipe.image}" alt="card__image" class="card__image" width="600">
-        //     </div>
-        //     <div class="card__body">
-        //     <h4>${recipe.recipe.label}</h4>
-        //     <span class="tag tag-blue">${recipe.recipe.mealType}</span>
-        //     <span class="tag tag-blue">${recipe.recipe.cuisineType}</span>          
-        //     </div>
-        //     <ul>
-        //         ${recipe.recipe.ingredientLines.slice(0, 7).map(ingredient => `<li>${ingredient}</li>`).join('')}
-        //     </ul>
-        //     <div class="card__footer">
-        //       <div class="user">
-        //         <button class="user__image"><span class="tag tag-blue">Save</span></button>
-        //         <button class="user__image"><a class="tag tag-blue" href=${recipe.recipe.url}>View Recipe</a></button>
-        //       </div>
-        //     </div>
-        //   </div>
-        //     `
-        // });
         let html = '';
         recipes.forEach((recipe) => {
-            html += `
-            <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1"id="results">
+            var randomDecimal = Math.random();
 
+            // Scale the random decimal to the desired range (1 to 60 in this case)
+            var randomNumber = Math.floor(randomDecimal * 100) + 20;
+
+            console.log(recipe.recipe.image)
+            html += `
+            <div class="ncard col-lg-3 col-md-4 col-sm-6 col-xs-12 border my-5 m-1">
+                {% csrf_token %}
             <figure class="figure">
                 <img src="${recipe.recipe.image}"
                     class="image img-fluid rounded-5" alt="${recipe.recipe.label}">
@@ -891,7 +893,7 @@
 
                 <div class="chef col-lg-6 d-flex justify-content-start">
                     <div class="chefname">
-                        <div>-By abcdefghijk</div>
+                        <div></div>
                         <div class="line"></div>
                         <div class="text-end">LA</div>
                     </div>
@@ -903,7 +905,7 @@
 
                     <div class="chefname">
                         <div class="row">
-                            <span class="fs-10 fw-bolder">
+                            <span class="fs-10 fw-bolder recipename">
                                 ${recipe.recipe.label}
                             </span>
                         </div>
@@ -921,7 +923,7 @@
                     ${recipe.recipe.cuisineType}, ${recipe.recipe.mealType}
                 </div>
                 <div class="col-lg-6 col-sm-12 justify-content-lg-end text-end">
-                    20 min
+                    ${randomNumber} min
                 </div>
             </div>
 
@@ -937,13 +939,13 @@
                     </button>
                 </div>
                 <div class="lss share mx-auto">
-                    <button class="btn btn-transparent btn-sm" name="share" id="share">
+                    <button class="btn btn-transparent share btn-sm" name="share" id="share">
                         <i class="fa-sharp fa-solid fa-share-nodes"></i>
                         Share
                     </button>
                 </div>
                 <div class="lss save mx-auto">
-                    <button class="btn btn-transparent btn-sm" name="save" id="save">
+                    <button class="btn btn-transparent btn-sm save" name="save" id="save">
                         <i class="fa-solid fa-floppy-disk"></i>
                         Save
                     </button>
@@ -962,6 +964,12 @@
             `
         });
         resultsList.innerHTML = html;
+        mealType="";
+        ingredients=["" ,"",""];
+        cuisineType="";
+        finalSearchValue="";
+        searchValue="";
+
     }
 
     const filterButton = document.getElementById('filter-button');
@@ -984,6 +992,104 @@
     }); 
     
         
+    {% comment %} try to save {% endcomment %}
+    
+    const recipeCardsContainer = document.getElementById('results');
+    recipeCardsContainer.addEventListener('click', (event) => {
+        const clickedElement = event.target;
+        if (clickedElement.classList.contains('save')) {
+            console.log("hello in save my darlng")
+            const recipeCard = clickedElement.closest('.ncard');
+            const recipeData = extractRecipeData(recipeCard);
+            console.log(recipeData);
+            var url = "/home/?"+recipeData;
+            console.log("url iis " + url)
+            window.location.href = url;
+        }
+        else if (clickedElement.classList.contains('share')) {
+            var bodyHTML = document.body.innerHTML;
+            var maru =  `<div id="notification" class="notification">
+                            <ul class="messages">
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>link copied successfully!</li>
+                            </ul>
+                            <button id="close-notification" onclick="closeNotification()">Close</button>
+                        </div>`;
+
+            var newbody = maru+bodyHTML;
+            document.body.innerHTML = newbody;
+            console.log("hello in share my darlng")
+            const recipeCard = clickedElement.closest('.ncard');
+            const recipeData = giveurl(recipeCard);
+            copyToClipboard(recipeData);
+        }
+    });
+
+    function copyToClipboard(text) {
+        var tempInput = document.createElement("input");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+
+    function extractRecipeData(recipeCard) { 
+
+        const recipeImage = recipeCard.querySelector('.image').src;
+        const recipeencodedImage = btoa(recipeImage);
+        const recipeLabel = recipeCard.querySelector('.recipename').textContent;
+        //const chefName = recipeCard.querySelector('.chefname div:first-child').textContent;
+        const cuisineType = recipeCard.querySelector('.third div:first-child').textContent.split(', ')[0];
+        const mealType = recipeCard.querySelector('.third div:first-child').textContent.split(', ')[1];
+        const preparationTime = recipeCard.querySelector('.third div:last-child').textContent;
+        //const recipeURL = recipeCard.querySelector('.cook button').getAttribute('href');;
+        const recipeURL =  recipeCard.querySelector('.fifth .btn').getAttribute('onclick').match(/'([^']+)'/)[1];
+        //const ecuisineType = encodeURIComponent(cuisineType);
+        //const emealType = encodeURIComponent(mealType);
+        //const epreparationTime = encodeURIComponent(preparationTime);
+        //const erecipeURL = encodeURIComponent(recipeURL);
+        //const erecipeLabel = encodeURIComponent(recipeLabel);
+
+        console.log(recipeencodedImage+"    ....in the extractRecipeData")
+        const stri = "param1="+recipeencodedImage+"&param2="+recipeLabel.trim()+"&param3="+cuisineType.trim()+"&param4="+mealType.trim()+"&param5="+preparationTime.trim()+"&param6="+recipeURL;
+        return stri;
+    }
+
+    function giveurl(recipeCard){
+        const recipeURL =  recipeCard.querySelector('.fifth .btn').getAttribute('onclick').match(/'([^']+)'/)[1];
+        return recipeURL;
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        var messages = document.getElementById("notification");
+        if (messages) {
+            var message = messages.innerText.trim();
+            if (message !== "") {
+                showNotification(message);
+            }
+        }
+    });
+
+        // Function to show a notification
+    function showNotification(message) {
+        var notification = document.getElementById("notification");
+        notification.style.display = "block";
+        {% comment %} notification.innerHTML = `<ul class="messages">${message}</ul><button id="close-notification" onclick="closeNotification()">Close</button>`; {% endcomment %}
+
+        // Hide the notification after 5 seconds
+        setTimeout(function () {
+            notification.style.display = "none";
+        }, 50000);
+    }
+
+    // Function to close the notification
+    function closeNotification() {
+        var notification = document.getElementById("notification");
+        if (notification) {
+            notification.style.display = "none";
+        }
+    }
+
 </script>
 
 </html>

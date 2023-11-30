@@ -65,7 +65,7 @@
 
         .form-control:focus {
             background-color: transparent;
-            outline: none !important;
+            outline: none ;
             border: none;
         }
 
@@ -170,9 +170,9 @@
                 </div>
 
                 <div class="a2">Contact us today, and get reply within 24 hours!</div>
-                <form method="POST" id="contactForm" name="contactForm" class="contactForm ">
+                <form method="post" id="contactForm" name="contactForm" class="contactForm " action = "/contact">
+                    {% csrf_token %}
                     <br />
-
                     <div class="a3">
                         <!-- name -->
                         <input type="text" class="form-control" name="name" id="name" placeholder="Name" required />
